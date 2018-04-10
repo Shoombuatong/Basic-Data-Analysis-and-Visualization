@@ -3,10 +3,11 @@ library(ggplot2)
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
     geom_point()
 
-#### Custom scatterplot
+#### Set dot size and intensive color
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
 geom_point(size=6, alpha=0.6)
 
+#### Set dot color and other parameters
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) +
 geom_point(
         color="red",
