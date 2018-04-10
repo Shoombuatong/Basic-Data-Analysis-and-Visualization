@@ -6,10 +6,14 @@ ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) +
 #### Custom scatterplot
 library(ggplot2)
 
-# Color and shape depend on factor (categorical variable)
-ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, color=Species, shape=Species)) +
-    geom_point(size=6, alpha=0.6)
- 
-# Color and shape depend on factor (numerical variable)
-ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width, color=Petal.Length, size=Petal.Length)) +
-    geom_point(alpha=0.6)
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
+geom_point(size=6, alpha=0.6)
+
+ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) +
+geom_point(
+        color="red",
+        fill="blue",
+        shape=21,
+        alpha=0.6,
+        size=6,
+        stroke = 0.5)
