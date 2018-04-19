@@ -168,9 +168,20 @@ class(Model2)
 summary(Model2)
 
 # Simple linear model
+height = c(176, 154, 138, 196, 132, 176, 181, 169, 150, 175)
+bodymass = c(82, 49, 53, 112, 47, 69, 77, 71, 62, 78)
+M <- lm(formula = height ~ bodymass)
+summary(M)
+
+# Simple linear model
 setwd('D:\\workshop')
-dataset = read.csv("exampledata.csv", header=T,colClasses = c("numeric", "numeric", "numeric"))
-simple.fit = lm(Sales~Spend, data=dataset)
+dataset = read.csv("eGFR.csv", header=T,colClasses = c("numeric", "numeric", "numeric","numeric", "numeric"))
+
+simple.fit = lm(eGFR59~eGFR55, data=dataset)
 summary(simple.fit)
-multi.fit = lm(Sales~Spend+Month, data=dataset)
-summary(multi.fit)
+
+multi.fit1 = lm(eGFR59~eGFR58+eGFR57+eGFR56+eGFR55, data=dataset)
+summary(multi.fit1)
+
+multi.fit2 = lm(eGFR59~eGFR58+eGFR57+eGFR55, data=dataset)
+summary(multi.fit2)
