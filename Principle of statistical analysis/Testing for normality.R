@@ -1,7 +1,7 @@
 ## Generate two data sets
 ## First Normal, second from a t-distribution
 w1<-rnorm(1000, mean=10, sd=2) 
-w2<-rnorm(500, mean=5, sd=3) 
+w2<-rnorm(50, mean=3, sd=1) 
 
 ## Have a look at the histogram
 hist(w1, col="grey")
