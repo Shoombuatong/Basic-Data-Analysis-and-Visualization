@@ -39,3 +39,20 @@ plot(pain ~ drug, data=migraine)
 aov.out = aov(pain ~ drug, data = migraine)
 summary(aov.out)
 TukeyHSD(aov.out)
+
+# Ex 1 Two-way ANOVA
+bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
+biofeedback <- factor(c(rep("present",10),rep("absent",10)))
+drug <- factor(rep(c(rep("use",5),rep("notuse",5)),2))
+bpdata <- data.frame(bloodpressure, biofeedback, drug)
+bpdata
+
+myanova <- aov(bloodpressure ~ biofeedback*drug)
+summary(myanova)
+
+# Ex 2 Two-way ANOVA
+D = read.csv("deliver.csv", header=T)
+
+
+
+
