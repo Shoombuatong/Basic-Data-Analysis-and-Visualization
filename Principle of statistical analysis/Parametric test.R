@@ -21,12 +21,12 @@ New =  c(27, 52, 46, 33, 37, 82, 51, 92, 68, 62 )
 t.test(Standard,New,alternative="two.sided", var.equal=TRUE)
 
 # Check ANOVA assumption of One-way ANOVA
-## 1. The experimental errors of your data are normally distributed. 
 pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
 drug = c(rep("A",9), rep("B",9), rep("C",9))
 migraine = data.frame(pain,drug)
 migraine
 
+## 1. The experimental errors of your data are normally distributed. 
 model = aov(pain ~ drug, data=migraine)
 model$residuals
 shapiro.test(model$residuals)
@@ -58,6 +58,23 @@ aov.out = aov(pain ~ drug, data = migraine)
 summary(aov.out)
 TukeyHSD(aov.out)
 
+# Check ANOVA assumption of One-way ANOVA
+bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
+biofeedback <- factor(c(rep("present",10),rep("absent",10)))
+drug <- factor(rep(c(rep("use",5),rep("notuse",5)),2))
+bpdata <- data.frame(bloodpressure, biofeedback, drug)
+bpdata
+## 1. The experimental errors of your data are normally distributed.
+model = aov(pain ~ drug, data=migraine)
+model$residuals
+shapiro.test(model$residuals)
+
+## 2. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
+bartlett.test(pain ~ drug, data=migraine)
+
+## 3. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
+bartlett.test(pain ~ drug, data=migraine)
+
 # Ex 1 Two-way ANOVA
 bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
 biofeedback <- factor(c(rep("present",10),rep("absent",10)))
@@ -69,6 +86,7 @@ myanova <- aov(bloodpressure ~ biofeedback*drug)
 summary(myanova)
 
 TukeyHSD(myanova,which="biofeedback:drug")
+
 # Ex 2 Two-way ANOVA
 delivery.df = data.frame(
   Service = c(rep("Carrier 1", 15), rep("Carrier 2", 15),
@@ -86,10 +104,8 @@ myanova <- aov(Time ~ Service*Destination, data= delivery.df)
 summary(myanova)
 
 TukeyHSD(myanova,which="Service:Destination")
-
                    
  # Ex 3 Two-way ANOVA
-
 D = read.csv("Stree.csv", header = TRUE)
  
 myanova <- aov(SCORE ~ METHOD*GENDER, data= D)
