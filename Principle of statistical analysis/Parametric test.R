@@ -20,7 +20,7 @@ Standard =  c(35, 104, 27, 53, 72, 64, 97, 121, 86, 41 )
 New =  c(27, 52, 46, 33, 37, 82, 51, 92, 68, 62 )
 t.test(Standard,New,alternative="two.sided", var.equal=TRUE)
 
-# Check ANOVA assumption of One-way ANOVA
+# Check One-way ANOVA assumption
 pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
 drug = c(rep("A",9), rep("B",9), rep("C",9))
 migraine = data.frame(pain,drug)
@@ -34,9 +34,8 @@ shapiro.test(model$residuals)
 ## 2. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
 bartlett.test(pain ~ drug, data=migraine)
 
-## 3. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
-bartlett.test(pain ~ drug, data=migraine)
-
+## 3.Independence of samples: Each sample is randomly selected and independent 
+chisq.test(table(migraine))
 
 # Ex 1 One-way ANOVA
 attach(InsectSprays)
@@ -58,21 +57,21 @@ aov.out = aov(pain ~ drug, data = migraine)
 summary(aov.out)
 TukeyHSD(aov.out)
 
-# Check ANOVA assumption of One-way ANOVA
+# Check Two-way ANOVA assumption
 bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
 biofeedback <- factor(c(rep("present",10),rep("absent",10)))
 drug <- factor(rep(c(rep("use",5),rep("notuse",5)),2))
 bpdata <- data.frame(bloodpressure, biofeedback, drug)
 bpdata
-## 1. The experimental errors of your data are normally distributed.
+## 1. All samples are drawn from normally distributed populations.
 model = aov(pain ~ drug, data=migraine)
 model$residuals
 shapiro.test(model$residuals)
 
-## 2. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
+## 2. The samples have a common variance.
 bartlett.test(pain ~ drug, data=migraine)
 
-## 3. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
+## 3. There are no outliers that distort the test results.
 bartlett.test(pain ~ drug, data=migraine)
 
 # Ex 1 Two-way ANOVA
