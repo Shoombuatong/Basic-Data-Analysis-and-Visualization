@@ -15,7 +15,7 @@ WardB =  c(11.9, 10.7, 12.3, 13.9, 11.1, 11.2, 13.3, 11.4, 12.0, 11.1)
 t.test(WardA,WardB,alternative="two.sided", var.equal=TRUE,conf.level = 0.95)
 
 
-# Ex 1 Two-sample t-tests (Separated variance)
+# Ex 2 Two-sample t-tests (Separated variance)
 Standard =  c(35, 104, 27, 53, 72, 64, 97, 121, 86, 41 )
 New =  c(27, 52, 46, 33, 37, 82, 51, 92, 68, 62 )
 t.test(Standard,New,alternative="two.sided", var.equal=TRUE)
@@ -37,25 +37,33 @@ bartlett.test(pain ~ drug, data=migraine)
 ## 3.Independence of samples: Each sample is randomly selected and independent 
 chisq.test(table(migraine))
 
-# Ex 1 One-way ANOVA
+## Analysis result
+aov.out = aov(pain ~ drug, data=migraine)
+summary(aov.out)
+TukeyHSD(aov.out)
+
+
+# Ex 2 One-way ANOVA
 attach(InsectSprays)
 InsectSprays
 plot(count ~ spray, data=InsectSprays)
 
+## 1. The experimental errors of your data are normally distributed. 
+model = aov(count ~ spray, data=InsectSprays)
+model$residuals
+shapiro.test(model$residuals)
+
+## 2. Equal variances between treatments Homogeneity of variances Homoscedasticity. 
+bartlett.test(count ~ spray, data=InsectSprays)
+
+## 3.Independence of samples: Each sample is randomly selected and independent 
+chisq.test(table(InsectSprays))
+
+## Analysis result
 aov.out = aov(count ~ spray, data=InsectSprays)
 summary(aov.out)
 TukeyHSD(aov.out)
 
-# Ex 2 One-way ANOVA
-pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
-drug = c(rep("A",9), rep("B",9), rep("C",9))
-migraine = data.frame(pain,drug)
-migraine
-plot(pain ~ drug, data=migraine)
-
-aov.out = aov(pain ~ drug, data = migraine)
-summary(aov.out)
-TukeyHSD(aov.out)
 
 # Check Two-way ANOVA assumption
 bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
