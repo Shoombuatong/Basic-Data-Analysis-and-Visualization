@@ -80,7 +80,12 @@ shapiro.test(model$residuals)
 bartlett.test(pain ~ drug, data=migraine)
 
 ## 3. There are no outliers that distort the test results.
-bartlett.test(pain ~ drug, data=migraine)
+G <- factor(c(rep("G1",5),rep("G2",5),rep("G3",5),rep("G4",5)))
+bpdata_new <- data.frame(bloodpressure, G)
+
+model = aov(bloodpressure ~ G, data=bpdata_new)
+model$residuals
+
 
 # Ex 1 Two-way ANOVA
 bloodpressure <- c(158,163,173,178,168,188,183,198,178,193,186,191,196,181,176,185,190,195,200,180)
