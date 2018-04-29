@@ -17,7 +17,7 @@ t.test(WardA,WardB,alternative="two.sided", var.equal=TRUE,conf.level = 0.95)
 ######### Ex 3 Two-sample t-tests (Separated variance)
 Standard =  c(35, 104, 27, 53, 72, 64, 97, 121, 86, 41 )
 New =  c(27, 52, 46, 33, 37, 82, 51, 92, 68, 62 )
-t.test(Standard,New,alternative="two.sided", var.equal=TRUE)
+t.test(Standard,New,alternative="two.sided", var.equal=FALSE)
 
 ######### Example of One-way ANOVA assumption
 ######### Ex 1
