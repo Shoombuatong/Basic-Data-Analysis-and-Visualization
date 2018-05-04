@@ -12,7 +12,6 @@ write.csv(res.pca$ind$coord, "score_gene.csv", row.names=FALSE, na="")
 
 
 #################### Label points in this scatterplot
-
 score_plot = read.csv("score_gene.csv", header = TRUE)
 
 plot(score_plot[,1], score_plot[,2], main= NULL, xlab= "PC1(10.53%)",ylab= "PC2(8.75%)", pch=19,
@@ -21,7 +20,7 @@ col=score_plot[,6])
 legend('topright', legend = levels(score_plot[,6]), col = 1:3, cex = 1, pch = 19)
 
 #################### Label points with fixing a color for each group
-plot(Dim.1 ~ Dim.2, score_plot, main= NULL,xlab = 'PC1 (12.34%)' ,ylab = 'PC2 (8.79%)', type = "n",pch=16, lwd =4,
+plot(Dim.1 ~ Dim.2, score_plot, main= NULL,xlab = 'PC1 (10.53%)' ,ylab = 'PC2 (8.75%)', type = "n",pch=16, lwd =4,
 cex = 2)
 
 data1 = subset(score_plot, Class == 'BRCA')
@@ -45,7 +44,7 @@ Mygreen <- rgb(t(col2rgb("green")), alpha=150, maxColorValue=300)
 Myyellow <- rgb(t(col2rgb("yellow")), alpha=150, maxColorValue=300)
 Mygrey <- rgb(t(col2rgb("grey")), alpha=150, maxColorValue=300)
 
-plot(Dim.1 ~ Dim.2, score_plot, main= NULL,xlab = 'PC1 (12.34%)' ,ylab = 'PC2 (8.79%)', type = "n",pch=16, lwd =4,
+plot(Dim.1 ~ Dim.2, score_plot, main= NULL,xlab = 'PC1 (10.53%)' ,ylab = 'PC2 (8.75%)', type = "n",pch=16, lwd =4,
 cex = 2)
 
 data1 = subset(score_plot, Class == 'BRCA')
