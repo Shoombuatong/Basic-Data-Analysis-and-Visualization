@@ -30,4 +30,6 @@ pheatmap(nDat, cutree_rows = 2,  cellheight = 10, cellwidth = 20)
 pheatmap(nDat, cluster_cols = T, cluster_rows = T , cutree_rows = 2, gaps_row = c(10, 20, 30, 40), cellheight = 10, cellwidth = 20)                                                  
 pheatmap(nDat, cluster_cols = T, cluster_rows = T , cutree_rows = 3, gaps_row = c(10, 20, 30, 40), cellheight = 10, cellwidth = 20)
 pheatmap(nDat, cluster_cols = T, cluster_rows = T , cutree_rows = 4, gaps_row = c(10, 20, 30, 40), cellheight = 10, cellwidth = 20)
-pheatmap(nDat, cluster_cols = T, cluster_rows = T , cutree_rows = 5, gaps_row = c(10, 20, 30, 40), cellheight = 10, cellwidth = 20)                        
+pheatmap(nDat, cluster_cols = T, cluster_rows = T , cutree_rows = 5, gaps_row = c(10, 20, 30, 40), cellheight = 10, cellwidth = 20) 
+                        
+                        
