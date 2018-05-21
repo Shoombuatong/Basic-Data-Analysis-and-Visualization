@@ -5,3 +5,6 @@ my_data <- data.frame(
                 group = rep(c("Woman", "Man"), each = 9),
                 weight = c(women_weight,  men_weight)
                 )
+
+shapiro.test(women_weight)
+shapiro.test(men_weight)
