@@ -1,10 +1,21 @@
-women_weight <- c(38.9, 61.2, 73.3, 21.8, 63.4, 64.6, 48.4, 48.8, 48.5)
-men_weight <- c(67.8, 60, 63.4, 76, 89.4, 73.3, 67.3, 61.3, 62.4) 
-# Create a data frame
-my_data <- data.frame( 
-                group = rep(c("Woman", "Man"), each = 9),
-                weight = c(women_weight,  men_weight)
-                )
+### Mann Whitney U Test (Wilcoxon Rank Sum Test)
+### Ex. 1
+placebo = 	c(7	,5,	6,	4,	12)
+newdrug	= c(3,	6,	4,	2,	1)
+wilcox.test(placebo,newdrug, alternative = c("two.sided"), exact = FALSE,paired=FALSE)
 
-shapiro.test(women_weight)
-shapiro.test(men_weight)
+### Ex. 2
+usual	= c(8,	7,	6,	2,	5,	8,	7,	3)
+new = 	c(9,	8,	7,	8,	10,	9,	6)	
+wilcox.test(usual	,new , alternative = c("two.sided"), exact = FALSE,paired=FALSE)
+
+### Wilcoxon Signed Rank Test
+### Ex. 1
+before = c(85 ,70 ,40 ,65 ,80 ,75 ,55 ,20)
+after = c(75 ,50 ,50 ,40 ,20 ,65 ,40 ,25)
+wilcox.test(before, after, paired=TRUE,alternative = c("two.sided"), exact = FALSE) 
+
+### Ex. 2
+brandA = c(24,27,19,24,22,26,27,25,22)
+brandB = c(26,27,22,27,25,27,26,27,23)
+wilcox.test(brandA, brandB, paired=TRUE,alternative = c("two.sided"), exact = FALSE) 
