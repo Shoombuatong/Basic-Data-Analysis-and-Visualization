@@ -19,3 +19,16 @@ qqline(w1, col = 2)
 
 qqnorm(w2)
 qqline(w2, col = 2)
+
+
+### Mann Whitney U Test (Wilcoxon Rank Sum Test)
+### Ex. 2
+usual	= c(8,	7,	6,	2,	5,	8,	7,	3)
+new = 	c(9,	8,	7,	8,	10,	9,	6)	
+wilcox.test(usual	,new , alternative = c("two.sided"), exact = FALSE,paired=FALSE)
+
+### Wilcoxon Signed Rank Test
+### Ex. 2
+brandA = c(24,27,19,24,22,26,27,25,22)
+brandB = c(26,27,22,27,25,27,26,27,23)
+wilcox.test(brandA, brandB, paired=TRUE,alternative = c("two.sided"), exact = FALSE) 
