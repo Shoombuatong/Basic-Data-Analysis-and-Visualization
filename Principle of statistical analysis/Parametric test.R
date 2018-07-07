@@ -7,7 +7,7 @@ t.test(x, alternative="greater", mu=0.3,conf.level = 0.95)
 ######### Ex 1 Two-sample t-tests (Pooled variance)
 Control = c(91, 87, 99, 77, 88, 91)
 Treat = c(101, 110, 103, 93, 99, 104)
-t.test(Control,Treat,alternative="less", var.equal=TRU,conf.level = 0.95)
+t.test(Control,Treat,alternative="less", var.equal=TRUE,conf.level = 0.95)
 
 ######### Ex 2 Two-sample t-tests (Pooled variance)
 WardA =  c(12.2, 11.1, 14.0, 11.3, 10.8, 12.5, 12.2, 11.9, 13.6, 12.7, 13.4, 13.7)
@@ -72,9 +72,13 @@ summary(myanova)
 TukeyHSD(myanova,which="Service:Destination")
                    
 ######### Ex 3 Two-way ANOVA
+setwd('D:\\Workshop')
+
 D = read.csv("Stree.csv", header = TRUE)
  
 myanova <- aov(SCORE ~ METHOD*GENDER, data= D)
 summary(myanova)
+TukeyHSD(myanova,which="METHOD:GENDER")
+
 
 TukeyHSD(myanova,which="METHOD:GENDER")
