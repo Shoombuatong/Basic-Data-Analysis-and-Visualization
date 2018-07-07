@@ -10,9 +10,18 @@ before = c(85 ,70 ,40 ,65 ,80 ,75 ,55 ,20)
 after = c(75 ,50 ,50 ,40 ,20 ,65 ,40 ,25)
 wilcox.test(before, after, paired=TRUE,alternative = c("two.sided"), exact = FALSE) 
 
-### Wilcoxon Signed Rank Test
+### The Kruskal-Wallis Test
 library(PMCMR)
+
 ### Ex. 1
+albumin = c(3.1,2.6,2.9,3.8,4.1,2.9,3.4,4.2,4.0,5.5,5.0,4.8)
+group = c(rep("5per",3), rep("10per",5), rep("15per",4))
+mike = data.frame(albumin,group)
+
+kruskal.test(albumin ~ group, data = mike)
+posthoc.kruskal.nemenyi.test(albumin ~ group, data = mike, method="Tukey")
+
+### Ex. 2
 Input =("
 Group      Value
 Group.1      1
@@ -75,7 +84,7 @@ Data = read.table(textConnection(Input),header=TRUE)
 kruskal.test(Value ~ Group, data = Data)
 posthoc.kruskal.nemenyi.test(Value ~ Group, data = Data, method="Tukey")
 
-### Ex. 2
+### Ex. 3
 Input =("
 Obs Health     Efficiency
 1   Normal     2.9
@@ -98,11 +107,5 @@ Data = read.table(textConnection(Input),header=TRUE)
 kruskal.test(Efficiency ~ Health, data = Data)
 posthoc.kruskal.nemenyi.test(Efficiency ~ Health, data = Data, method="Tukey")
 
-### Ex. 3
-albumin = c(3.1,2.6,2.9,3.8,4.1,2.9,3.4,4.2,4.0,5.5,5.0,4.8)
-group = c(rep("5per",3), rep("10per",5), rep("15per",4))
-mike = data.frame(albumin,group)
 
-kruskal.test(albumin ~ group, data = mike)
-posthoc.kruskal.nemenyi.test(albumin ~ group, data = mike, method="Tukey")
 
