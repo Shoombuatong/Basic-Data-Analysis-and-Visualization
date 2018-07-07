@@ -17,6 +17,19 @@ ES1P =function(z,p,e){
 n = ceiling((z^2 *p*(1-p))/(e^2))
 return(n)
 }
+# Comparing 2 means independent
+# z0 is a confidence interval of a control group.
+# z1 is a confidence interval of a study grpup.
+# p0 is the mean of a control group.
+# p1 is the mean of a study group.
+# sd is a standard deviation.
+
+ES2M_1 =function(z0,z1,p0,p1,sd){
+up = (z0 + z1)*sd
+down = p1-p0
+n = ceiling((up/down)^2)
+return(n)
+}
 
 # Comparing 2 proportions
 # z0 is a confidence interval of a control group.
@@ -31,19 +44,7 @@ n = ceiling((up/down)^2)
 return(n)
 }
 
-# Comparing 2 means independent
-# z0 is a confidence interval of a control group.
-# z1 is a confidence interval of a study grpup.
-# p0 is the mean of a control group.
-# p1 is the mean of a study group.
-# sd is a standard deviation.
 
-ES2M_1 =function(z_alpha,z_beta,p0,p1,sd){
-up = (z0 + z1)*sd
-down = p1-p0
-n = ceiling((up/down)^2)
-return(n)
-}
 
 # Comparing 2 means dependent
 # z0 is a confidence interval of a control group.
@@ -51,9 +52,9 @@ return(n)
 # p0 is a proportion of a control group.
 # p1 is a proportion of a study grpup.
 
-NC2M_2 =function(z0,z1,p0,p1,sd){
-up = (z0 + z1)*sd
-down = p1-p0
+ES2D =function(z0,z1,r){
+up = z0 + z1*sqrt((1-(r*r))
+down = r
 n = ceiling((up/down)^2)
 return(n)
 }
