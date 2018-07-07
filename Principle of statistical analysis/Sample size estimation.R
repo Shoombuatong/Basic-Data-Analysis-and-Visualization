@@ -3,7 +3,7 @@
 # sd is a standard deviation.
 # e is an error.
 
-NE1M =function(z,sd,e){
+ES1M =function(z,sd,e){
 n = ceiling((z^2 * sd^2)/(e^2))
 return(n)
 }
@@ -13,7 +13,7 @@ return(n)
 # p is a proportion.
 # e is an error.
 
-NE1P =function(z,p,e){
+ES1P =function(z,p,e){
 n = ceiling((z^2 *p*(1-p))/(e^2))
 return(n)
 }
@@ -24,7 +24,7 @@ return(n)
 # p0 is a proportion of a control group.
 # p1 is a proportion of a study grpup.
 
-NC2P =function(z0,z1,p0,p1){
+ES2P =function(z0,z1,p0,p1){
 up = z0*sqrt(p0*(1-p0))+z1*sqrt(p1*(1-p1))
 down = p1-p0
 n = ceiling((up/down)^2)
@@ -38,7 +38,7 @@ return(n)
 # p1 is the mean of a study group.
 # sd is a standard deviation.
 
-NC2M =function(z_alpha,z_beta,p0,p1,sd){
+ES2M_1 =function(z_alpha,z_beta,p0,p1,sd){
 up = (z0 + z1)*sd
 down = p1-p0
 n = ceiling((up/down)^2)
@@ -51,7 +51,7 @@ return(n)
 # p0 is a proportion of a control group.
 # p1 is a proportion of a study grpup.
 
-NC2M =function(z0,z1,p0,p1,sd){
+NC2M_2 =function(z0,z1,p0,p1,sd){
 up = (z0 + z1)*sd
 down = p1-p0
 n = ceiling((up/down)^2)
