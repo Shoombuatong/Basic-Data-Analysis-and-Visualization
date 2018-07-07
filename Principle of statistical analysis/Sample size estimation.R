@@ -44,18 +44,16 @@ n = ceiling((up/down)^2)
 return(n)
 }
 
-
-
 # Comparing 2 means dependent
 # z0 is a confidence interval of a control group.
 # z1 is a confidence interval of a study grpup.
-# p0 is a proportion of a control group.
-# p1 is a proportion of a study grpup.
+# r is a coefficient estimation. 
 
-ES2D =function(z0,z1,r){
-up = z0 + z1*sqrt((1-(r*r))
+ES2D = function(z0,z1,r){
+up = z0 + z1 * sqrt(1-r^2)
 down = r
-n = ceiling((up/down)^2)
+result = (up/down)^2 + 2
+n = ceiling(result)
 return(n)
 }
 
