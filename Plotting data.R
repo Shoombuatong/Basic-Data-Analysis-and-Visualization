@@ -122,17 +122,10 @@ boxplot(Petal.Length ~ Species,data=iris, main='Petal Length', col = colors ,hor
 boxplot(Petal.Width ~ Species,data=iris, main='Petal Width', col = colors ,horizontal=FALSE)
 
 ########################### multiplot
-D12 = rbind(setosa,versicolor)
-D13 = rbind(setosa,virginica)
-D23 = data.frame(versicolor,virginica)
-
-colors12 <- c("red","blue")
-colors13 <- c("red","green")
-colors23 <- c("blue","green")
-
-boxplot(Sepal.Length ~ Species,data=D12, main='Sepal Length', col = colors12 ,horizontal=FALSE)
-boxplot(Sepal.Length ~ Species,data=D13, main='Sepal Width', col = colors13 ,horizontal=FALSE)
-boxplot(Sepal.Length ~ Species,data=D23, main='Petal Length', col = colors23 ,horizontal=FALSE)
+pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
+drug = c(rep("A",9), rep("B",9), rep("C",9))
+migraine = data.frame(pain,drug)
+boxplot(pain ~ drug,data=migraine, main='Migraine', col = colors ,horizontal=FALSE)
 
 
 
