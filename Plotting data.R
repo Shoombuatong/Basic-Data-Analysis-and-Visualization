@@ -47,4 +47,35 @@ ggplot( iris, aes(x=Sepal.Length, y=Sepal.Width,size=Petal.Length,color=Species)
     legend.justification = c("right", "bottom"),
     panel.border = element_blank()
   )
-        
+  
+######## Histogram 
+setosa = subset(iris, Species == "setosa")
+hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",xlab="TG",col="cyan1",breaks=20) 
+
+hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
+
+hist(setosa[,2],main="Setosa ",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
+
+hist(setosa[,3],main="Setosa ",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
+
+hist(setosa[,4],main="Setosa ",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+
+par( mfrow = c(2,2 ),mai=c(0.7,0.7,0.3,0.3))
+hist(setosa[,1],main="Setosa",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
+hist(setosa[,2],main="Setosa",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
+hist(setosa[,3],main="Setosa",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
+hist(setosa[,4],main="Setosa",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+
+par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
+hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
+hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
+hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
+hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+mtext("Setosa", side = 3, line = -2, outer = TRUE,cex = 1.5)
+
+par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
+hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
+hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
+hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
+hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+mtext("Setosa", side = 3, line = -18, outer = TRUE,cex = 1.5)
