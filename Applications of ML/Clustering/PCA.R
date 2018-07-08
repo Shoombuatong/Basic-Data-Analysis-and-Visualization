@@ -1,8 +1,9 @@
-library(FactoMineR)
 setwd('D:\\Workshop')
-dataset = read.csv("gene-expression.csv", header=T)
+library(FactoMineR)
+
+dataset = read.csv("gene-expression-example.csv", header=T)
 label = read.csv("labels.csv", header=T)
-dataset = dataset[,-1]
+dataset = dataset[,-ncol(dataset)]
 
 res.pca <- PCA(dataset)
 
@@ -13,11 +14,11 @@ write.csv(res.pca$ind$coord, "score_gene.csv", row.names=FALSE, na="")
 
 #################### Label points in this scatterplot
 score_plot = read.csv("score_gene.csv", header = TRUE)
-
+score_plot = data.frame(score_plot, Class = label [,2])
 plot(score_plot[,1], score_plot[,2], main= NULL, xlab= "PC1(10.53%)",ylab= "PC2(8.75%)", pch=19,
-col=score_plot[,6])
+col=1:5)
 
-legend('topright', legend = levels(score_plot[,6]), col = 1:3, cex = 1, pch = 19)
+legend('topright', legend = levels(score_plot[,6]), col = 1:5, cex = 1, pch = 19)
 
 #################### Label points with fixing a color for each group
 plot(Dim.1 ~ Dim.2, score_plot, main= NULL,xlab = 'PC1 (10.53%)' ,ylab = 'PC2 (8.75%)', type = "n",pch=16, lwd =4,
