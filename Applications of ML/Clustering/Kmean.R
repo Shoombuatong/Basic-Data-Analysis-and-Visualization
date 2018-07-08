@@ -5,7 +5,7 @@ library( cluster)
 library( purrr)
 
 setwd('D:\\Workshop')
-D = read.csv("gene-expression.csv", header=T)
+D = read.csv("gene-expression-example.csv", header=T)
 label = read.csv("labels.csv", header=T)
 dataset = D[,-1]
 
@@ -48,11 +48,6 @@ k.values <- 2:15
 # extract avg silhouette for 2-15 clusters
 avg_sil_values <- map_dbl(k.values, avg_sil)
 
-plot(k.values, avg_sil_values,
-       type = "b", pch = 19, frame = FALSE, 
-       xlab = "Number of clusters K",
-       ylab = "Average Silhouettes")
-       
 plot(k.values, avg_sil_values,
        type = "b", pch = 19, frame = FALSE, xlim = c(1,15), ylim = c(0,0.4),
        xlab = "Number of clusters K",
