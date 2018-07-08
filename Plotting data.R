@@ -114,8 +114,6 @@ hist(versicolor[,4],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=5, add
 legend("topright", inset=.05, title=NULL,
   c("setosa","versicolor","overlap"), col=c(rgb(1,0,0,0.7),rgb(0,0,1,0.4),"purple"), pch=15)
 
-
-
 ########################### Boxplot
 colors <- c("red","blue","green")
 boxplot(Sepal.Length ~ Species,data=iris, main='Sepal Length', col = colors ,horizontal=FALSE)
@@ -123,7 +121,18 @@ boxplot(Sepal.Width ~ Species,data=iris, main='Sepal Width', col = colors ,horiz
 boxplot(Petal.Length ~ Species,data=iris, main='Petal Length', col = colors ,horizontal=FALSE)
 boxplot(Petal.Width ~ Species,data=iris, main='Petal Width', col = colors ,horizontal=FALSE)
 
+########################### multiplot
+D12 = rbind(setosa,versicolor)
+D13 = rbind(setosa,virginica)
+D23 = data.frame(versicolor,virginica)
 
+colors12 <- c("red","blue")
+colors13 <- c("red","green")
+colors23 <- c("blue","green")
+
+boxplot(Sepal.Length ~ Species,data=D12, main='Sepal Length', col = colors12 ,horizontal=FALSE)
+boxplot(Sepal.Length ~ Species,data=D13, main='Sepal Width', col = colors13 ,horizontal=FALSE)
+boxplot(Sepal.Length ~ Species,data=D23, main='Petal Length', col = colors23 ,horizontal=FALSE)
 
 
 
