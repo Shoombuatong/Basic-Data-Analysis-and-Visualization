@@ -98,7 +98,7 @@ legend("topright", inset=.05, title=NULL,
 hist(male[,10],main="TG",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20,xlim=c(0,1000),ylim=c(0,2000)) 
 hist(female[,10],main=NULL,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20,xlim=c(0,500), add=T) 
 
-########################### Merge Histogram
+########################### Merge Histogram (Overlapping colors)
 hist(setosa[,1],main="Sepal Length",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20) 
 hist(versicolor[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20, add=T) 
 
@@ -125,7 +125,24 @@ boxplot(Petal.Width ~ Species,data=iris, main='Petal Width', col = colors ,horiz
 pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
 drug = c(rep("A",9), rep("B",9), rep("C",9))
 migraine = data.frame(pain,drug)
-boxplot(pain ~ drug,data=migraine, main='Migraine', col = colors ,horizontal=FALSE)
+boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
+
+drugA  = subset(migraine, drug == "A")
+drugB  = subset(migraine, drug == "B")
+drugC  = subset(migraine, drug == "C")
+
+par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
+boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
+
+hist(drugA[,1],main="Drug A vs. Drug B",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=10) 
+hist(drugB[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=10, add=T) 
+
+hist(drugA[,1],main="Drug A vs. Drug C",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=5) 
+hist(drugC[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=5, add=T)  
+
+hist(drugB[,1],main="Drug B vs. Drug C",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=5) 
+hist(drugC[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=5, add=T) 
+
 
 
 
