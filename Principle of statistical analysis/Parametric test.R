@@ -75,10 +75,6 @@ myanova <- aov(SCORE ~ METHOD*GENDER, data= D)
 summary(myanova)
 TukeyHSD(myanova,which="METHOD:GENDER")
 
-
-TukeyHSD(myanova,which="METHOD:GENDER")
-
-
 ######### Ex 4 Two-way ANOVA
 stree <- c(9,13,11,7,8,11,7,11,9,11,5,7,6,10,4,10,15,8,17,10)
 field <- factor(c(rep("phychology",10),rep("business",10)))
