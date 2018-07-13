@@ -10,14 +10,11 @@ hist(w1, col="grey", freq=F)
 ## Have a look at the curve on the histogram
 curve( dnorm(x, mean = mean(w1),sd= sd(w1)), add=T, col="red")
 
-
 ## Plot Density plot
 library("ggpubr")
 library("glue")
 
-ggdensity(w1, 
-          main = "W1",
-          xlab = "value")
+ggdensity(w1, main = "W1", xlab = "value")
 
 ## Plot using a qqplot
 qqnorm(w1)
