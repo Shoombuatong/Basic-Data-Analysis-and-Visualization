@@ -40,6 +40,18 @@ aov.out = aov(pain ~ drug, data=migraine)
 summary(aov.out)
 TukeyHSD(aov.out)
 
+######### Example of   Two-way ANOVA
+stree <- c(9,13,11,7,8,11,7,11,9,11,5,7,6,10,4,10,15,8,17,10)
+field <- factor(c(rep("phychology",10),rep("business",10)))
+proximity <- factor(rep(c(rep("W1",5),rep("W2",5)),2))
+data <- data.frame(stree, field, proximity )
+data
+
+myanova <- aov(stree ~ field*proximity)
+summary(myanova)
+
+TukeyHSD(myanova,which="field:proximity")
+
 ######### Example of Two-way ANOVA assumption
 relief = c(12,15,16,17,14,14,17,19,20,17,25,27,29,24,22,21,19,18,24,25,21,20,23,27,25,37,34,36,26,29)
 sex <- factor(c(rep("male",15),rep("female",15)))
