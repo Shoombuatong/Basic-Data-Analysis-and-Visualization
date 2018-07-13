@@ -10,7 +10,6 @@ x * y
  
 # Vectors
 workshop <- c(1, 2, 1, 2, 1, 2, 1, 2)
-print(workshop)
 workshop
  
 gender <- c("f", "f", "f", "f", "m", "m", "m", "m")
@@ -23,13 +22,7 @@ q4 <- c(1, 1, 3, 3, 4, 5, 4, 5)
 q1[5]
 q1[ c(5, 6, 7, 8) ]
 q1[5:8]
-q1[gender == "m"]
-mean( q1[ gender == "m" ])
- 
-# ---Factors---
- 
-# Numeric Factors
- 
+
 # First, as a vector
 workshop <- c(1, 2, 1, 2, 1, 2, 1, 1)
 workshop
@@ -44,11 +37,9 @@ workshop
 table(workshop)
 mean(workshop) 
 sd(workshop) 
-gender[workshop == 2]
  
-# Recreate workshop, making it a factor
-# Recreate it with just the levels it
-# curently has.
+
+# Assign numeric with factor 
 workshop <- c(1, 2, 1, 2, 1, 2, 1, 1)
 workshop <- factor(
 workshop,
@@ -57,29 +48,23 @@ labels = c("R","SAS")
 )
 
 # including levels that don't yet exist.
-workshop <- c(1, 2, 1, 2, 1, 2, 1, 1)
-workshop <- factor(
-workshop,
+workshop1 <- c(1, 2, 1, 2, 1, 2, 1, 1)
+workshop1 <- factor(
+workshop1,
 levels = c( 1,  2),
 labels = c("R","SAS")
 )
 
 
-workshop <- c(1, 2, 1, 2, 1, 2, 1, 1)
-workshop <- factor(
-workshop,
+workshop2 <- c(1, 2, 1, 2, 1, 2, 1, 1)
+workshop2 <- factor(
+workshop2,
 levels = c( 1,   2,     3,      4),
 labels = c("R", "SAS", "SPSS", "Stata")
 )
  
-
-workshop
-table(workshop)
-gender[workshop == 2]
-gender[workshop == "SAS"]
- 
 # Data Frames
-mydata <- data.frame(workshop, gender, q1, q2, q3, q4)
+mydata <- data.frame(workshop1, gender, q1, q2, q3, q4)
 mydata
  
 names(mydata)
@@ -142,7 +127,6 @@ mymatrixT
 # ---Controlling Functions---
  
 # Controlling Functions with Arguments
- 
 help("mean")
 mean(x = q3)
 mean(x = q3,na.rm = TRUE)
@@ -151,6 +135,12 @@ mean( c(1, 2, 3) )
 mean( 1:3 )
  
 # Controlling Functions With Formulas
+# Simple linear model
+height = c(176, 154, 138, 196, 132, 176, 181, 169, 150, 175)
+bodymass = c(82, 49, 53, 112, 47, 69, 77, 71, 62, 78)
+M <- lm(formula = height ~ bodymass)
+summary(M)
+
 data1 <- data.frame(q1, q2, q3, q4)
 Model1 <- lm( q4 ~ q1 + q2 + q3, data = data1 )
 class(Model1)
@@ -163,15 +153,7 @@ t.test(q2 ~ gender, data = data2)
 t.test(q3 ~ gender, data = data2)
 t.test(q4 ~ gender, data = data2)
 
-Model2 <- lm( formula = gender ~ q1 + q2 + q3+ q4 ,data = data2)
-class(Model2)
-summary(Model2)
 
-# Simple linear model
-height = c(176, 154, 138, 196, 132, 176, 181, 169, 150, 175)
-bodymass = c(82, 49, 53, 112, 47, 69, 77, 71, 62, 78)
-M <- lm(formula = height ~ bodymass)
-summary(M)
 
 # Simple linear model
 setwd('D:\\workshop')
