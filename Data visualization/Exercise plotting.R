@@ -1,31 +1,6 @@
-########################### multiplot
-pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
-drug = c(rep("A",9), rep("B",9), rep("C",9))
-migraine = data.frame(pain,drug)
-colors <- c("red","blue","green")
-boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
+relief = c(12,15,16,17,14,14,17,19,20,17,25,27,29,24,22,21,19,18,24,25,21,20,23,27,25,37,34,36,26,29)
+sex <- factor(c(rep("male",15),rep("female",15)))
+treatment <- factor(rep(c(rep("A",5),rep("B",5),rep("C",5)),2))
+data <- data.frame(relief, sex , treatment)
+data
 
-drugA  = subset(migraine, drug == "A")
-drugB  = subset(migraine, drug == "B")
-drugC  = subset(migraine, drug == "C")
-drugAB = rbind(drugA, drugB)
-drugAC = rbind(drugA, drugC)
-drugBC = rbind(drugB, drugC)
-
-par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
-boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAB, main='Migraine', col = c("red","blue") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAC, main='Migraine', col = c("red","green") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugBC, main='Migraine', col = c("blue","green") ,horizontal=FALSE)
-
-
-library(base)
-drugAB$drug <- factor(drugAB$drug)
-drugAC$drug <- factor(drugAC$drug)
-drugBC$drug <- factor(drugBC$drug)
-
-par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
-boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAB, main='Migraine', col = c("red","blue") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAC, main='Migraine', col = c("red","green") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugBC, main='Migraine', col = c("blue","green") ,horizontal=FALSE)
