@@ -1,4 +1,4 @@
-########### Basic scatterplot
+########### Basic Scatterplot
 library(ggplot2)
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width)) + 
     geom_point()
@@ -17,6 +17,10 @@ geom_point(
         size=6,
         stroke = 0.5)
         
+########### Exercise for Scatterplot
+ggplot(iris, aes(x= any , y= any)) + 
+    geom_point() 
+
 ########### Bubble_chart
 ########### plot 2 variables and dot size depends on the value of Petal.Length
 ggplot(iris, aes(x=Sepal.Length, y=Sepal.Width,size=Petal.Length)) +
@@ -47,14 +51,19 @@ ggplot( iris, aes(x=Sepal.Length, y=Sepal.Width,size=Petal.Length,color=Species)
     legend.justification = c("right", "bottom"),
     panel.border = element_blank()
   )
-  
+
+########### Exercise for Bubble_chart
+ggplot(iris, aes(x= any, y= any,size= any)) 
+
+
 ######## Histogram 
 setosa = subset(iris, Species == "setosa")
 versicolor = subset(iris, Species == "versicolor")
 virginica = subset(iris, Species == "virginica")
 
-hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",xlab="TG",col="cyan1",breaks=20) 
+hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20) 
 hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
+
 hist(setosa[,2],main="Setosa ",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
 hist(setosa[,3],main="Setosa ",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
 hist(setosa[,4],main="Setosa ",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
@@ -95,9 +104,6 @@ hist(versicolor[,4],main=NA,ylab=NULL,xlab=NULL,col="blue",breaks=5, add=T)
 legend("topright", inset=.05, title=NULL,
   c("setosa","versicolor"), col=c("springgreen1","blue"), pch=15)
 
-hist(male[,10],main="TG",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20,xlim=c(0,1000),ylim=c(0,2000)) 
-hist(female[,10],main=NULL,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20,xlim=c(0,500), add=T) 
-
 ########################### Merge Histogram (Overlapping colors)
 hist(setosa[,1],main="Sepal Length",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20) 
 hist(versicolor[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20, add=T) 
@@ -113,6 +119,11 @@ hist(versicolor[,4],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=5, add
 
 legend("topright", inset=.05, title=NULL,
   c("setosa","versicolor","overlap"), col=c(rgb(1,0,0,0.7),rgb(0,0,1,0.4),"purple"), pch=15)
+
+########### Exercise for Histogram
+hist(setosa[,1],main="Sepal Length",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20) 
+hist(virginica[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20, add=T) 
+
 
 ########################### Boxplot
 colors <- c("red","blue","green")
@@ -168,7 +179,7 @@ drugAC$drug <- factor(drugAC$drug)
 drugBC$drug <- factor(drugBC$drug)
 
 par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
-boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAB, main='Migraine', col = c("red","blue") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugAC, main='Migraine', col = c("red","green") ,horizontal=FALSE)
-boxplot(pain ~ drug,data= drugBC, main='Migraine', col = c("blue","green") ,horizontal=FALSE)
+boxplot(pain ~ drug,data= migraine, main='A vs B vs C', col = colors ,horizontal=FALSE)
+boxplot(pain ~ drug,data= drugAB, main='A vs B', col = c("red","blue") ,horizontal=FALSE)
+boxplot(pain ~ drug,data= drugAC, main='A vs C', col = c("red","green") ,horizontal=FALSE)
+boxplot(pain ~ drug,data= drugBC, main='B vs C', col = c("blue","green") ,horizontal=FALSE)
