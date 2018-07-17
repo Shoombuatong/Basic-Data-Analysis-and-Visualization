@@ -62,33 +62,33 @@ versicolor = subset(iris, Species == "versicolor")
 virginica = subset(iris, Species == "virginica")
 
 hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20) 
-hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
-
-hist(setosa[,2],main="Setosa ",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
-hist(setosa[,3],main="Setosa ",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
-hist(setosa[,4],main="Setosa ",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,6),ylim=c(0,15))
+hist(setosa[,2],main="Setosa ",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20,xlim=c(2,5),ylim=c(0,10)) 
+hist(setosa[,3],main="Setosa ",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=10,xlim=c(1,2),ylim=c(0,15)) 
+hist(setosa[,4],main="Setosa ",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=5) 
 
 par( mfrow = c(2,2 ),mai=c(0.7,0.7,0.3,0.3))
-hist(setosa[,1],main="Setosa",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
-hist(setosa[,2],main="Setosa",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
-hist(setosa[,3],main="Setosa",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
-hist(setosa[,4],main="Setosa",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+hist(setosa[,1],main="Setosa ",ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,6),ylim=c(0,15))
+hist(setosa[,2],main="Setosa ",ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20,xlim=c(2,5),ylim=c(0,10)) 
+hist(setosa[,3],main="Setosa ",ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=10,xlim=c(1,2),ylim=c(0,15)) 
+hist(setosa[,4],main="Setosa ",ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=5) 
 
-par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
-hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
-hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
-hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
-hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+par( mfrow = c(2,2),mai=c(0.6,0.6,0.55,0.55))
+hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,6),ylim=c(0,15))
+hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20,xlim=c(2,5),ylim=c(0,10)) 
+hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=10,xlim=c(1,2),ylim=c(0,15)) 
+hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=5) 
 mtext("Setosa", side = 3, line = -2, outer = TRUE,cex = 1.5)
 
-par( mfrow = c(2,2 ),mai=c(0.5,0.5,0.4,0.4))
-hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,8),ylim=c(0,20))
-hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20) 
-hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=20) 
-hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=20) 
+par( mfrow = c(2,2 ),mai=c(0.2,0.2,0.4,0.4))
+hist(setosa[,1],main=NA,ylab="Frequency",xlab="Sepal Length",col="cyan1",breaks=20,xlim=c(4,6),ylim=c(0,15))
+hist(setosa[,2],main=NA,ylab="Frequency",xlab="Sepal Width",col="cyan1",breaks=20,xlim=c(2,5),ylim=c(0,10)) 
+hist(setosa[,3],main=NA,ylab="Frequency",xlab="Petal Length",col="cyan1",breaks=10,xlim=c(1,2),ylim=c(0,15)) 
+hist(setosa[,4],main=NA,ylab="Frequency",xlab="Petal Width",col="cyan1",breaks=5) 
 mtext("Setosa", side = 3, line = -18, outer = TRUE,cex = 1.5)
 
 ########################### Merge Histogram
+par( mfrow = c(2,2 ),mai=c(0.7,0.7,0.3,0.3))
 hist(setosa[,1],main="Sepal Length",ylab="Frequency",xlab="TG",col="springgreen1",breaks=20) 
 hist(versicolor[,1],main=NA,ylab=NULL,xlab=NULL,col="blue",breaks=20, add=T) 
 
@@ -105,6 +105,7 @@ legend("topright", inset=.05, title=NULL,
   c("setosa","versicolor"), col=c("springgreen1","blue"), pch=15)
 
 ########################### Merge Histogram (Overlapping colors)
+par( mfrow = c(2,2 ),mai=c(0.7,0.7,0.3,0.3))
 hist(setosa[,1],main="Sepal Length",ylab="Frequency",xlab="TG",col=rgb(1,0,0,0.7),breaks=20) 
 hist(versicolor[,1],main=NA,ylab=NULL,xlab=NULL,col=rgb(0,0,1,0.4),breaks=20, add=T) 
 
@@ -136,6 +137,8 @@ boxplot(Petal.Width ~ Species,data=iris, main='Petal Width', col = colors ,horiz
 pain = c(4, 5, 4, 3, 2, 4, 3, 4, 4, 6, 8, 4, 5, 4, 6, 5, 8, 6, 6, 7, 6, 6, 7, 5, 6, 5, 5)
 drug = c(rep("A",9), rep("B",9), rep("C",9))
 migraine = data.frame(pain,drug)
+
+par( mfrow = c(1,1 ))
 boxplot(pain ~ drug,data= migraine, main='Migraine', col = colors ,horizontal=FALSE)
 
 drugA  = subset(migraine, drug == "A")
