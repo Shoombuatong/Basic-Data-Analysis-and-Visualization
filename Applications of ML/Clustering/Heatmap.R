@@ -7,7 +7,7 @@ label = read.csv("labels.csv", header=T)
 
 ##### Simple heatmap
 Dselect = D[1:50,1:50]
-df <- Dselect[, ! apply(Dselect , 2 , function(x) sd(x) < 0.9 ) ]
+df <- Dselect[, ! apply(Dselect , 2 , function(x) sd(x) > 0.9 ) ]
 nDat = (df-min(df))/(max(df)-min(df))                    
 heatmap(as.matrix(nDat), scale = "none")
 
