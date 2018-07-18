@@ -8,6 +8,8 @@ n = ceiling((z^2 * sd^2)/(e^2))
 return(n)
 }
 
+ES1M(1.96, 4, 0.8)
+
 # Estimation population proportion (Estimation of 1 proportion)
 # z is a confidence interval.
 # p is a proportion.
@@ -17,6 +19,8 @@ ES1P =function(z,p,e){
 n = ceiling((z^2 *p*(1-p))/(e^2))
 return(n)
 }
+
+
 # Comparing 2 means independent
 # z0 is a confidence interval of a control group.
 # z1 is a confidence interval of a study grpup.
@@ -31,6 +35,8 @@ n = ceiling((up/down)^2)
 return(n)
 }
 
+ES2M_1(1.96, 1.645, 98, 110, 20)
+
 # Comparing 2 proportions
 # z0 is a confidence interval of a control group.
 # z1 is a confidence interval of a study grpup.
@@ -43,6 +49,7 @@ down = p1-p0
 n = ceiling((up/down)^2)
 return(n)
 }
+
 
 # Comparing 2 means dependent
 # z0 is a confidence interval of a control group.
