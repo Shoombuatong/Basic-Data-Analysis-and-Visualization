@@ -5,7 +5,7 @@ library(factoextra)
 setwd('D:\\Workshop')
 dataset = read.csv("gene-expression-example.csv", header=T)
 label = read.csv("labels.csv", header=T)
-dataset = dataset[,-1]
+dataset = dataset[,-ncol(dataset)]
 
 #######To remove any missing value that might be present in the data, type this:
 df <- na.omit(dataset)
